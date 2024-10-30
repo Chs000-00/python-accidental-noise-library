@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.4)
 project(python_accidental_noise_library)
 
+add_definitions(-DUSETHREAD)
+
 add_subdirectory(ThirdParty/pybind11)
 pybind11_add_module(python_accidental_noise_library src/main.cpp)
 
