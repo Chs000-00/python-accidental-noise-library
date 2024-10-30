@@ -9,7 +9,7 @@ namespace py = pybind11;
 using namespace anl;
 
 
-PYBIND11_MODULE(python_anl, m) {
+PYBIND11_MODULE(pyanlib, m) {
     m.def("hermite_blend", &hermite_blend);
 
 #ifdef VERSION_INFO
