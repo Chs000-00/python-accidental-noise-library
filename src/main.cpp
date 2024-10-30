@@ -11,6 +11,8 @@ using namespace anl;
 
 PYBIND11_MODULE(pyanlib, m) {
     m.def("hermite_blend", &hermite_blend);
+    m.def("quintic_blend", &quintic_blend);
+
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
