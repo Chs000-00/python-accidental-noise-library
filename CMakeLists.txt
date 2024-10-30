@@ -1,11 +1,10 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.4)
+project(PyBindANL)
 
-add_definitions(-DUSETHREAD)
+add_subdirectory(ThirdParty/pybind11)
+pybind11_add_module(PyBindANL src/main.cpp)
 
-# include_directories(ThirdParty/lua-5.1.4/src/ ThirdParty/toluapp/include/)
-
-file(GLOB sources Framework/main.cpp
-  Bindings/bind_anl.cpp
-)
-
-add_executable(anl ${sources})
+# EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
+# define (VERSION_INFO) here.
+target_compile_definitions(PyBindANL
+                           PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
