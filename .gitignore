@@ -9,3 +9,4 @@ tolua++.exe
 Bindings/tolua++.exe
 Bindings/toluaexe.exe
 python_accidental_noise_library.egg-info
+dist
