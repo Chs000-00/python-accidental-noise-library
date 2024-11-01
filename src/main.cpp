@@ -1,6 +1,7 @@
 #include <pybind11/pybind11.h>
 
 #include "../anl.h"
+#include "../Imaging/imaging.h"
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
 
