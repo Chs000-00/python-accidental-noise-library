@@ -1,0 +1,6 @@
+[build-system]
+requires = ["pybind11", "setuptools"]
+
+[project]
+name = "pyanlib"
+version = "0.1.0"

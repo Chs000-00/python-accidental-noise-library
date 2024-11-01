@@ -8,7 +8,6 @@
 
 
 namespace py = pybind11;
-using namespace anl;
 
 // Would autogenerating these instead be better?
 PYBIND11_MODULE(pyanlib, m) {
@@ -23,9 +22,9 @@ PYBIND11_MODULE(pyanlib, m) {
     m.def("gain", &gain);
 
     // imaging.h
-    m.def("map2D", &map2D);
-    m.def("map2DNoZ", &map2DNoZ);
-    m.def("map3D", &map3D);
+    m.def("map2D", &anl::map2D);
+    m.def("map2DNoZ", &anl::map2DNoZ);
+    m.def("map3D", &anl::map3D);
 
 
 
