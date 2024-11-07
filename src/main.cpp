@@ -29,6 +29,12 @@ PYBIND11_MODULE(pyanlib, m) {
     py::class_<Pet>(m, "CCoordinate")
         .def(py::init<>())
         .def("set", static_cast<void (CCoordinate::*)(double, double)>(&CCoordinate::set))
+        .def("set", static_cast<void (CCoordinate::*)(double, double, double)>(&CCoordinate::set))
+        .def("set", static_cast<void (CCoordinate::*)(double, double, double, double)>(&CCoordinate::set))
+        .def("set", static_cast<void (CCoordinate::*)(double, double, double, double, double, double)>(&CCoordinate::set))
+
+
+
 
 
 
