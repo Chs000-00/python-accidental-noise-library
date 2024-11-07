@@ -26,6 +26,11 @@ PYBIND11_MODULE(pyanlib, m) {
     m.def("map2DNoZ", &anl::map2DNoZ);
     m.def("map3D", &anl::map3D);
 
+    py::class_<Pet>(m, "CCoordinate")
+        .def(py::init<>())
+        .def("set", static_cast<void (CCoordinate::*)(double, double)>(&CCoordinate::set))
+
+
 
 
 
