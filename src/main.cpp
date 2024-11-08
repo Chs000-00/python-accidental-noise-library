@@ -57,6 +57,7 @@ PYBIND11_MODULE(pyanlib, m) {
         .value("BASIS_SIMPLEX", anl::BASIS_SIMPLEX)
         .export_values();
 
+    // vm/noise_gen.h
     m.def("no_interp", &anl::noInterp);
     m.def("linear_interp", &anl::linearInterp);
     m.def("hermite_interp", &anl::hermiteInterp);
@@ -77,6 +78,15 @@ PYBIND11_MODULE(pyanlib, m) {
     m.def("dist_greatest_axis4", &anl::distGreatestAxis4);
     m.def("dist_greatest_axis6", &anl::distGreatestAxis6);
 
+    m.def("dist_least_axis2", &anl::distLeastAxis2);
+    m.def("dist_least_axis3", &anl::distLeastAxis3);
+    m.def("dist_least_axis4", &anl::distLeastAxis4);
+    m.def("dist_least_axis6", &anl::distLeastAxis6);
+
+    m.def("value_noise2D", &anl::value_noise2D);
+    m.def("value_noise3D", &anl::value_noise3D);
+    m.def("value_noise4D", &anl::value_noise4D);
+    m.def("value_noise6D", &anl::value_noise6D);
 
 
 #ifdef VERSION_INFO
