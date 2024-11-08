@@ -26,6 +26,7 @@ PYBIND11_MODULE(pyanlib, m) {
     m.def("map2DNoZ", &anl::map2DNoZ);
     m.def("map3D", &anl::map3D);
 
+    // VM/coordinate.h
     py::class_<anl::CCoordinate>(m, "CCoordinate")
         .def(py::init<>())
         .def("set", static_cast<void (anl::CCoordinate::*)(double, double)>(&anl::CCoordinate::set))
@@ -33,6 +34,7 @@ PYBIND11_MODULE(pyanlib, m) {
         .def("set", static_cast<void (anl::CCoordinate::*)(double, double, double, double)>(&anl::CCoordinate::set))
         .def("set", static_cast<void (anl::CCoordinate::*)(double, double, double, double, double, double)>(&anl::CCoordinate::set));
 
+    // kernel.h
     py::enum_<anl::InterpolationTypes>(m, "InterpolationTypes")
         .value("INTERP_NONE", anl::INTERP_NONE)
         .value("INTERP_LINEAR", anl::INTERP_LINEAR)
@@ -40,7 +42,19 @@ PYBIND11_MODULE(pyanlib, m) {
         .value("INTERP_QUINTIC", anl::INTERP_QUINTIC)
         .export_values();
 
+    py::enum_<anl::DistanceTypes>(m, "DistanceTypes")
+        .value("DISTANCE_EUCLID", anl::DISTANCE_EUCLID)
+        .value("DISTANCE_MANHATTAN", anl::DISTANCE_MANHATTAN)
+        .value("DISTANCE_LEASTAXIS", anl::DISTANCE_LEASTAXIS)
+        .value("DISTANCE_GREATESTAXIS", anl::DISTANCE_GREATESTAXIS)
+        .export_values();
 
+
+    py::enum_<anl::BasisTypes>(m, "BasisTypes")
+        .value("BASIS_VALUE", anl::BASIS_VALUE)
+        .value("BASIS_GRADIENT", anl::BASIS_GRADIENT)
+        .value("BASIS_SIMPLEX", anl::BASIS_SIMPLEX)
+        .export_values();
 
 
 
