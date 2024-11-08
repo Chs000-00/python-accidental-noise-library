@@ -9,10 +9,11 @@
 
 namespace py = pybind11;
 
-// Would autogenerating these instead be better?
+// Would autogenerating these instead be better instead?
 PYBIND11_MODULE(pyanlib, m) {
     // util.h Functions
-    // Might not need to add these
+
+    // Might not need to add these functions
     m.def("hermite_blend", &hermite_blend);
     m.def("quintic_blend", &quintic_blend);
     m.def("fast_floor", &fast_floor);
@@ -35,6 +36,7 @@ PYBIND11_MODULE(pyanlib, m) {
         .def("set", static_cast<void (anl::CCoordinate::*)(double, double, double, double, double, double)>(&anl::CCoordinate::set));
 
     // kernel.h
+    // TODO: Follow python style guidelines
     py::enum_<anl::InterpolationTypes>(m, "InterpolationTypes")
         .value("INTERP_NONE", anl::INTERP_NONE)
         .value("INTERP_LINEAR", anl::INTERP_LINEAR)
@@ -49,14 +51,22 @@ PYBIND11_MODULE(pyanlib, m) {
         .value("DISTANCE_GREATESTAXIS", anl::DISTANCE_GREATESTAXIS)
         .export_values();
 
-
     py::enum_<anl::BasisTypes>(m, "BasisTypes")
         .value("BASIS_VALUE", anl::BASIS_VALUE)
         .value("BASIS_GRADIENT", anl::BASIS_GRADIENT)
         .value("BASIS_SIMPLEX", anl::BASIS_SIMPLEX)
         .export_values();
 
+    m.def("no_interp", &anl::noInterp);
+    m.def("linear_interp", &anl::linearInterp);
+    m.def("hermite_interp", &anl::hermiteInterp);
+    m.def("quintic_interp", &anl::quinticInterp);
 
+
+    m.def("dist_euclid2", &anl::distEuclid2);
+    m.def("dist_euclid3", &anl::distEuclid3);
+    m.def("dist_euclid4", &anl::distEuclid4);
+    m.def("dist_euclid6", &anl::distEuclid6);
 
 
 
