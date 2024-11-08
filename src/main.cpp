@@ -62,12 +62,20 @@ PYBIND11_MODULE(pyanlib, m) {
     m.def("hermite_interp", &anl::hermiteInterp);
     m.def("quintic_interp", &anl::quinticInterp);
 
-
     m.def("dist_euclid2", &anl::distEuclid2);
     m.def("dist_euclid3", &anl::distEuclid3);
     m.def("dist_euclid4", &anl::distEuclid4);
     m.def("dist_euclid6", &anl::distEuclid6);
 
+    m.def("dist_manhattan2", &anl::distManhattan2);
+    m.def("dist_manhattan3", &anl::distManhattan3);
+    m.def("dist_manhattan4", &anl::distManhattan4);
+    m.def("dist_manhattan6", &anl::distManhattan6);
+
+    m.def("dist_greatest_axis2", &anl::distGreatestAxis2);
+    m.def("dist_greatest_axis3", &anl::distGreatestAxis3);
+    m.def("dist_greatest_axis4", &anl::distGreatestAxis4);
+    m.def("dist_greatest_axis6", &anl::distGreatestAxis6);
 
 
 
