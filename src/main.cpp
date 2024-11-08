@@ -33,6 +33,14 @@ PYBIND11_MODULE(pyanlib, m) {
         .def("set", static_cast<void (anl::CCoordinate::*)(double, double, double, double)>(&anl::CCoordinate::set))
         .def("set", static_cast<void (anl::CCoordinate::*)(double, double, double, double, double, double)>(&anl::CCoordinate::set));
 
+    py::enum_<anl::InterpolationTypes>(m, "InterpolationTypes")
+        .value("INTERP_NONE", anl::INTERP_NONE)
+        .value("INTERP_LINEAR", anl::INTERP_LINEAR)
+        .value("INTERP_HERMITE", anl::INTERP_HERMITE)
+        .value("INTERP_QUINTIC", anl::INTERP_QUINTIC)
+        .export_values();
+
+
 
 
 
