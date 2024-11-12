@@ -9,3 +9,7 @@ for x in range(-10,10):
 c = pyanlib.CCoordinate()
 c.set(5, 5, 5)
 print(c)
+
+print(int(pyanlib.BasisTypes(pyanlib.BASIS_VALUE)))
+print(int(pyanlib.BasisTypes(pyanlib.BASIS_GRADIENT)))
+print(int(pyanlib.BasisTypes(pyanlib.BASIS_SIMPLEX)))
