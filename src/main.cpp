@@ -57,6 +57,24 @@ PYBIND11_MODULE(pyanlib, m) {
         .value("BASIS_SIMPLEX", anl::BASIS_SIMPLEX)
         .export_values();
 
+    // CKernal
+
+    py::class_<anl::CKernel>(m, "CKernel")
+        .def(py::init<>())
+        .def(py::init<const anl::CKernel>())
+        .def("pi", &anl::CKernel::pi)
+        .def("e", &anl::CKernel::e)
+        .def("one", &anl::CKernel::one)
+        .def("zero", &anl::CKernel::zero)
+        .def("point5", &anl::CKernel::point5)
+        .def("sqrt2", &anl::CKernel::sqrt2)
+        .def("constant", &anl::CKernel::constant)
+        .def("seed", &anl::CKernel::seed)
+        .def("seeder", &anl::CKernel::seeder);
+
+
+
+
     // vm/noise_gen.h
     m.def("no_interp", &anl::noInterp);
     m.def("linear_interp", &anl::linearInterp);
